@@ -1,4 +1,4 @@
-import OKBglitch from './images/OKBglitch.png';
+import okbglitch from './images/okbglitch.png';
 import './App.css';
 import { useState, useEffect, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={OKBglitch} alt="OKB glitch art" />
+        <img src={okbglitch} alt="pfp" />
         <div className="typing-text">
           {text}
           <span className="cursor">|</span>
