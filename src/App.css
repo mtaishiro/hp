@@ -50,8 +50,9 @@ body, html {
 }
 
 img {
-  width: auto;
-  height: 20%;
+  width: 100%;  /* Make image responsive */
+  max-width: 500px;  /* Maximum width on larger screens */
+  height: auto;  /* Maintain aspect ratio */
 }
 
 .typing-text {
@@ -81,4 +82,33 @@ img {
 .social-icons svg {
   width: 0.7em !important;  /* Adjust this value to resize icons */
   height: 0.7em !important;
+}
+
+/* Add responsive styles for mobile devices */
+@media screen and (max-width: 768px) {
+  .App-header {
+    min-height: 100vh;  /* Remove forced full height on mobile */
+    align-items: center;
+    justify-content: center;  /* Start content from top */
+    width: 100%;
+    font-size: calc(10px + 3vmin);
+  }
+
+  img {
+    width: 90%;  /* Slightly smaller on mobile for margins */
+    max-width: 100%;  /* Smaller maximum size on mobile */
+    display: block;  /* Ensure block display */
+    margin: 0 auto;  /* Center the image */
+  }
+
+  .typing-text {
+    font-size: 2rem;  /* Smaller font size on mobile */
+    margin: 1.5rem 0;  /* Reduced margins */
+  }
+
+  .social-icons {
+    margin-bottom: 0.5rem;
+    gap: 2.3rem;
+    justify-content: center;  /* Center the icons */
+  }
 }
