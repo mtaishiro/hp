@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.9e0f7844.css",
+    "main.css": "/static/css/main.91f4924e.css",
     "main.js": "/static/js/main.8f1bd9c1.js",
     "static/media/okbglitch.png": "/static/media/okbglitch.26402810e84c9e9de9cb.png",
     "index.html": "/index.html",
-    "main.9e0f7844.css.map": "/static/css/main.9e0f7844.css.map",
+    "main.91f4924e.css.map": "/static/css/main.91f4924e.css.map",
     "main.8f1bd9c1.js.map": "/static/js/main.8f1bd9c1.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e0f7844.css",
+    "static/css/main.91f4924e.css",
     "static/js/main.8f1bd9c1.js"
   ]
 }
