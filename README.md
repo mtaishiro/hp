@@ -4,19 +4,34 @@ Personal portfolio and blog website built with Next.js, Tailwind CSS, and MDX.
 
 ## Features
 
-- 🌐 **Multi-language Support** - English and Japanese versions
+- 🌐 **Multi-language Support** - English and Japanese blog versions
 - 📝 **Markdown/MDX Blog** - Write posts in Markdown or MDX
 - 🏷️ **Tag Filtering** - Filter posts by tags
 - 📄 **Static Site Generation** - Fast, SEO-friendly pages
-- 🎨 **Dark Theme** - Modern dark design with Tailwind CSS
-- 📱 **Responsive** - Works on all devices
+- 🎨 **Minimalist Design** - Clean, light-themed interface with custom typography
+- 🎭 **Interactive Home** - Animated orbiting icons and dynamic arrows
+- 📱 **Fully Responsive** - Adaptive sidebar navigation (transforms to top/bottom bars on mobile)
+- 🎯 **Fixed Sidebars** - Left navigation and right social links
 
 ## Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS with Typography plugin
+- **Typography**: Sometype Mono (custom monospace font)
 - **Content**: Markdown & MDX with frontmatter
+- **Animations**: React hooks for smooth icon orbiting and dynamic SVG arrows
 - **Deployment**: Vercel (auto-deploy from GitHub)
+
+## Design
+
+- **Color Palette**:
+  - Background: `#F4EED9` (warm beige)
+  - Sidebars: `#C9C3B1` (light taupe)
+  - Text: `#2c2c2c` (dark gray)
+  - Accents: `#000000` (black), `#4D4C4C` (medium gray)
+- **Layout**: Fixed dual sidebar design (200px each) with centered content
+- **Responsive Breakpoint**: 800px (sidebars transform to top/bottom bars below this)
+- **Interactive Elements**: Rotating orbital icons, dynamic arrows pointing to category labels
 
 ## Getting Started
 
@@ -50,24 +65,33 @@ npm run dev
 ```
 taishi.ro/
 ├── app/                    # Next.js App Router pages
-│   ├── blog/              # English blog routes
-│   ├── ja/                # Japanese routes
-│   ├── globals.css        # Global styles
-│   ├── layout.js          # Root layout
-│   └── page.js            # Home page
+│   ├── blog/              # Blog routes
+│   │   ├── page.js        # English blog list
+│   │   ├── ja/            # Japanese blog routes
+│   │   ├── drafts/        # Draft posts
+│   │   └── [year]/[slug]/ # Blog post pages
+│   ├── works/             # Works/portfolio page
+│   ├── globals.css        # Global styles & custom fonts
+│   ├── layout.js          # Root layout with sidebars
+│   └── page.js            # Interactive home page
 ├── components/            # React components
-│   ├── Navigation.js      # Global navigation
+│   ├── Sidebar.js         # Left navigation sidebar
+│   ├── RightSidebar.js    # Right social links sidebar
 │   ├── BlogPostCard.js    # Blog post card
 │   ├── Pagination.js      # Pagination component
-│   └── TagFilter.js       # Tag filter component
+│   ├── TagFilter.js       # Tag filter component
+│   └── MDXContent.js      # MDX content renderer
 ├── lib/                   # Utility functions
 │   ├── posts.js           # Blog post utilities
-│   └── mdx.js             # MDX compilation
+│   ├── mdx.js             # MDX compilation
+│   └── formatDate.js      # Date formatting
 ├── posts/                 # Blog posts
 │   └── YYYY/              # Year-based folders
 │       ├── slug.en.md     # English post
 │       └── slug.ja.md     # Japanese post
 ├── public/                # Static assets
+│   ├── fonts/             # Custom fonts (Sometype Mono)
+│   └── icons/             # Home page icons
 └── next.config.js         # Next.js configuration
 ```
 
@@ -118,21 +142,57 @@ The site will automatically link them together.
 
 Set `draft: true` in the frontmatter to hide posts from the main blog:
 
-- Won't appear in `/blog` or `/ja/blog`
-- Will appear in `/blog/drafts` or `/ja/blog/drafts`
+- Won't appear in `/blog` or `/blog/ja`
+- Will appear in `/blog/drafts` or `/blog/ja/drafts`
 - Useful for work-in-progress posts
 
 ## URL Structure
 
-- Home (EN): `/`
-- Home (JA): `/ja`
+- Home: `/`
+- Works: `/works`
 - Blog List (EN): `/blog`
-- Blog List (JA): `/ja/blog`
+- Blog List (JA): `/blog/ja`
 - Blog Post (EN): `/blog/YYYY/slug`
-- Blog Post (JA): `/ja/blog/YYYY/slug`
+- Blog Post (JA): `/blog/ja/YYYY/slug`
 - Drafts (EN): `/blog/drafts`
-- Drafts (JA): `/ja/blog/drafts`
-- Tag Filter: `/blog?tag=tagname`
+- Drafts (JA): `/blog/ja/drafts`
+- Tag Filter (EN): `/blog?tag=tagname`
+- Tag Filter (JA): `/blog/ja?tag=tagname`
+
+**Note**: Language switcher is only available on blog pages, not on home or works pages.
+
+## Home Page
+
+The home page features an interactive design with:
+
+- **Central Person Icon**: Static center point
+- **Orbiting Icons**: Three icons (music, tech, tea) rotating around the center
+  - Music icon links to SoundCloud
+  - Tech icon links to GitHub
+  - Tea icon links to Blog
+- **Category Labels**: "cul." (culture) and "nat." (nature) positioned in corners
+- **Dynamic Arrows**: Animated dashed arrows pointing from the orbit to category labels
+- **Responsive Animation**: Arrow lengths and positions adjust based on screen size
+
+All icons are sourced from Flaticon with proper attribution (see Icons section below).
+
+## Responsive Design
+
+The site adapts to different screen sizes:
+
+### Desktop (≥ 800px)
+- Fixed left sidebar (200px) with navigation
+- Fixed right sidebar (200px) with social links
+- Centered content area
+- Full home page animation with long arrows
+
+### Mobile (< 800px)
+- Top navigation bar (horizontal layout)
+- Bottom social links bar (horizontal layout)
+- Full-width content
+- Adjusted home page layout with shorter arrows
+
+The custom Tailwind breakpoint `sidebar` is used throughout for consistent responsive behavior.
 
 ## Deployment
 
