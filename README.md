@@ -176,3 +176,14 @@ Taishiro - [mtaishiro@proton.me](mailto:mtaishiro@proton.me)
 - Instagram: [@taishi.ro](https://www.instagram.com/taishi.ro/)
 - SoundCloud: [tshro](https://soundcloud.com/tshro)
 - OpenProcessing: [Profile](https://openprocessing.org/user/391345/)
+
+## Icons
+
+This project uses icons from [Flaticon].
+
+- Tea tree oil icons created by Prosymbols Premium from [Flaticon].
+- Graph icons created by Grafixpoint from [Flaticon].
+- Sound waves icon created by juicy_fish from [Flaticon].
+- Human icon created by meaicon from [Flaticon].
+
+[Flaticon]: https://www.flaticon.com/
