@@ -13,7 +13,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="fixed sidebar:left-0 left-0 sidebar:top-0 top-0 sidebar:h-screen h-16 sidebar:w-[200px] w-full bg-[#c9baa5] flex sidebar:flex-col flex-row sidebar:px-6 px-8 sidebar:py-8 py-4 z-50">
+    <aside className="fixed sidebar:left-0 left-0 sidebar:top-0 top-0 sidebar:h-screen h-16 sidebar:w-[200px] w-full bg-[#C9C3B1] flex sidebar:flex-col flex-row sidebar:px-6 px-8 sidebar:py-8 py-4 z-50">
       <nav className="flex sidebar:flex-col flex-row sidebar:gap-2 gap-6 sidebar:items-start items-center w-full sidebar:w-auto">
         {navLinks.map((link) => {
           const isActive = pathname === link.href || 

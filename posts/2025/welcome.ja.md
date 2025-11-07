@@ -4,7 +4,7 @@ date: "2025-11-03"
 summary: "これは私の最初のブログ投稿です！これから書いていく内容と、ブログを始めた理由について紹介します。"
 tags: ["blog", "meta"]
 lang: "ja"
-draft: false
+draft: true
 ---
 
 # ブログへようこそ

@@ -23,7 +23,7 @@ export default function RightSidebar() {
   ];
 
   return (
-    <aside className="fixed sidebar:right-0 right-0 sidebar:top-0 bottom-0 sidebar:h-screen h-16 sidebar:w-[200px] w-full bg-[#c9baa5] flex sidebar:flex-col flex-row sidebar:px-6 px-8 sidebar:py-8 py-4 z-50">
+    <aside className="fixed sidebar:right-0 right-0 sidebar:top-0 bottom-0 sidebar:h-screen h-16 sidebar:w-[200px] w-full bg-[#C9C3B1] flex sidebar:flex-col flex-row sidebar:px-6 px-8 sidebar:py-8 py-4 z-50">
       <nav className="flex sidebar:flex-col flex-row sidebar:gap-2 gap-4 sidebar:items-start items-center w-full sidebar:w-auto justify-center sidebar:justify-start">
         {socialLinks.map((link) => (
           <a

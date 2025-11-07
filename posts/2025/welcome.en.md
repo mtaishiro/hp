@@ -4,7 +4,7 @@ date: "2025-11-03"
 summary: "This is my first blog post! Learn about what I'll be writing about and why I started this blog."
 tags: ["blog", "meta"]
 lang: "en"
-draft: false
+draft: true
 ---
 
 # Welcome to My Blog
