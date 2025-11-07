@@ -38,7 +38,7 @@ export default function BlogList({ allPosts, allTags, lang, baseUrl }) {
       <TagFilter tags={allTags} currentTag={tag} baseUrl={baseUrl} />
       
       {posts.length === 0 ? (
-        <p className="text-gray-400 text-center py-12">
+        <p className="text-gray-600 text-center py-12">
           {lang === 'ja' ? '記事が見つかりません。' : 'No posts found.'}
         </p>
       ) : (

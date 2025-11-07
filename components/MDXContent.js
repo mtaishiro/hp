@@ -8,10 +8,10 @@ import * as runtime from 'react/jsx-runtime';
 const components = {
   InfoBox: ({ children, type = 'info' }) => {
     const colors = {
-      info: 'bg-blue-900/30 border-blue-500',
-      warning: 'bg-yellow-900/30 border-yellow-500',
-      error: 'bg-red-900/30 border-red-500',
-      success: 'bg-green-900/30 border-green-500',
+      info: 'bg-blue-50 border-blue-500',
+      warning: 'bg-yellow-50 border-yellow-500',
+      error: 'bg-red-50 border-red-500',
+      success: 'bg-green-50 border-green-500',
     };
     
     return (
@@ -33,7 +33,7 @@ const components = {
   ),
   
   Divider: () => (
-    <hr className="my-8 border-gray-700" />
+    <hr className="my-8 border-gray-300" />
   ),
 };
 
@@ -55,12 +55,12 @@ export default function MDXContent({ code }) {
   }, [code]);
 
   if (!MdxComponent) {
-    return <div className="text-gray-400">Loading...</div>;
+    return <div className="text-gray-600">Loading...</div>;
   }
 
   return (
     <MDXProvider components={components}>
-      <div className="prose prose-invert max-w-none">
+      <div className="prose max-w-none">
         <MdxComponent />
       </div>
     </MDXProvider>
