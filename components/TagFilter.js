@@ -4,20 +4,18 @@ export default function TagFilter({ tags, currentTag, baseUrl }) {
   if (!tags || tags.length === 0) return null;
 
   return (
-    <div className="mb-8">
-      <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
-        Filter by Tag
-      </h3>
-      <div className="flex flex-wrap gap-2">
+    <div className="mb-10 pb-6 border-b border-gray-300">
+      <div className="flex flex-wrap gap-3 items-center">
+        <span className="text-sm text-gray-600">tags:</span>
         <Link
           href={baseUrl}
-          className={`px-3 py-1 rounded-full text-sm transition-colors ${
+          className={`text-sm transition-colors ${
             !currentTag
-              ? 'bg-blue-600 text-white'
-              : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              ? 'text-gray-900 font-medium'
+              : 'text-gray-600 hover:text-gray-900'
           }`}
         >
-          All
+          all
         </Link>
         {tags.map(({ tag, count }) => {
           const isActive = currentTag === tag;
@@ -25,10 +23,10 @@ export default function TagFilter({ tags, currentTag, baseUrl }) {
             <Link
               key={tag}
               href={`${baseUrl}?tag=${tag}`}
-              className={`px-3 py-1 rounded-full text-sm transition-colors ${
+              className={`text-sm transition-colors ${
                 isActive
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  ? 'text-gray-900 font-medium'
+                  : 'text-gray-600 hover:text-gray-900'
               }`}
             >
               {tag} ({count})

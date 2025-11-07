@@ -6,6 +6,7 @@ import {
   getAdjacentPosts,
   getAlternateLangPost 
 } from '@/lib/posts';
+import { formatDate } from '@/lib/formatDate';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -48,73 +49,68 @@ export default function BlogPostPageJa({ params }) {
   const alternateLang = getAlternateLangPost(year, params.slug, lang);
   
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold text-white mb-4">{post.title}</h1>
+    <div className="min-h-screen px-12 py-16">
+      <article className="max-w-4xl">
+        <header className="mb-10 pb-6 border-b border-gray-300">
+          <h1 className="text-3xl font-normal text-gray-900 mb-3">{post.title}</h1>
           
-          <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
             <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString('ja-JP', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
+              {formatDate(post.date, lang)}
             </time>
             {post.tags.length > 0 && (
               <div className="flex gap-2">
                 {post.tags.map((tag) => (
                   <Link
                     key={tag}
-                    href={`/ja/blog?tag=${tag}`}
-                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                    href={`/blog/ja?tag=${tag}`}
+                    className="text-gray-600 hover:text-gray-900 transition-colors"
                   >
                     #{tag}
                   </Link>
                 ))}
               </div>
             )}
+            {alternateLang && (
+              <Link
+                href={`/blog/${alternateLang.year}/${alternateLang.slug}`}
+                className="text-gray-600 hover:text-gray-900 transition-colors ml-auto"
+              >
+                → en
+              </Link>
+            )}
           </div>
-          
-          {alternateLang && (
-            <Link
-              href={`/blog/${alternateLang.year}/${alternateLang.slug}`}
-              className="inline-block text-sm text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              → English version
-            </Link>
-          )}
         </header>
         
-        <div className="prose prose-invert prose-lg max-w-none mb-12">
+        <div className="prose prose-lg max-w-none mb-12">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {post.content}
           </ReactMarkdown>
         </div>
         
-        <nav className="border-t border-gray-800 pt-8 mt-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <nav className="border-t border-gray-300 pt-6 mt-12">
+          <div className="flex flex-col gap-4">
             {prev && (
               <Link
-                href={`/ja/blog/${prev.year}/${prev.slug}`}
-                className="group p-4 bg-gray-900/50 rounded-lg hover:bg-gray-900 transition-colors"
+                href={`/blog/ja/${prev.year}/${prev.slug}`}
+                className="group flex items-baseline gap-2"
               >
-                <div className="text-sm text-gray-400 mb-1">← 前の記事</div>
-                <div className="text-white group-hover:text-blue-400 transition-colors">
+                <span className="text-sm text-gray-600">← 前:</span>
+                <span className="text-sm text-gray-900 group-hover:text-gray-600 transition-colors">
                   {prev.title}
-                </div>
+                </span>
               </Link>
             )}
             
             {next && (
               <Link
-                href={`/ja/blog/${next.year}/${next.slug}`}
-                className="group p-4 bg-gray-900/50 rounded-lg hover:bg-gray-900 transition-colors md:text-right"
+                href={`/blog/ja/${next.year}/${next.slug}`}
+                className="group flex items-baseline gap-2"
               >
-                <div className="text-sm text-gray-400 mb-1">次の記事 →</div>
-                <div className="text-white group-hover:text-blue-400 transition-colors">
+                <span className="text-sm text-gray-600">次 →</span>
+                <span className="text-sm text-gray-900 group-hover:text-gray-600 transition-colors">
                   {next.title}
-                </div>
+                </span>
               </Link>
             )}
           </div>

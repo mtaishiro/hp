@@ -7,38 +7,45 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sidebar': '800px',
+      },
+      fontFamily: {
+        sans: ['Sometype Mono', 'Courier New', 'monospace'],
+        mono: ['Sometype Mono', 'Courier New', 'monospace'],
+      },
       typography: {
         DEFAULT: {
           css: {
             maxWidth: '65ch',
-            color: '#e5e5e5',
+            color: '#2c2c2c',
             a: {
-              color: '#60a5fa',
+              color: '#2563eb',
               '&:hover': {
-                color: '#93c5fd',
+                color: '#1d4ed8',
               },
             },
             h1: {
-              color: '#f5f5f5',
+              color: '#1a1a1a',
             },
             h2: {
-              color: '#f5f5f5',
+              color: '#1a1a1a',
             },
             h3: {
-              color: '#f5f5f5',
+              color: '#1a1a1a',
             },
             h4: {
-              color: '#f5f5f5',
+              color: '#1a1a1a',
             },
             strong: {
-              color: '#f5f5f5',
+              color: '#1a1a1a',
             },
             code: {
-              color: '#e5e5e5',
+              color: '#2c2c2c',
             },
             blockquote: {
-              color: '#d4d4d4',
-              borderLeftColor: '#525252',
+              color: '#4a4a4a',
+              borderLeftColor: '#d4d4d4',
             },
           },
         },

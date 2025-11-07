@@ -28,7 +28,7 @@ export default function DraftList({ draftPosts, lang, baseUrl }) {
   return (
     <>
       {posts.length === 0 ? (
-        <p className="text-gray-400 text-center py-12">
+        <p className="text-gray-600 text-center py-12">
           {lang === 'ja' ? '下書き記事が見つかりません。' : 'No draft posts found.'}
         </p>
       ) : (

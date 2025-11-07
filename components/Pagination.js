@@ -9,16 +9,17 @@ export default function Pagination({ currentPage, totalPages, baseUrl }) {
   }
 
   return (
-    <nav className="flex justify-center items-center gap-2 my-8">
+    <nav className="flex items-center gap-4 my-10 pt-6 border-t border-gray-300">
       {currentPage > 1 && (
         <Link
           href={`${baseUrl}${currentPage - 1 > 1 ? `?page=${currentPage - 1}` : ''}`}
-          className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-colors"
+          className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
         >
-          ← Prev
+          ← prev
         </Link>
       )}
       
+      <div className="flex items-center gap-2">
       {pages.map((page) => {
         const isActive = page === currentPage;
         const href = page === 1 ? baseUrl : `${baseUrl}?page=${page}`;
@@ -27,23 +28,24 @@ export default function Pagination({ currentPage, totalPages, baseUrl }) {
           <Link
             key={page}
             href={href}
-            className={`px-4 py-2 rounded transition-colors ${
+              className={`text-sm transition-colors ${
               isActive
-                ? 'bg-blue-600 text-white'
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  ? 'text-gray-900 font-medium'
+                  : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             {page}
           </Link>
         );
       })}
+      </div>
       
       {currentPage < totalPages && (
         <Link
           href={`${baseUrl}?page=${currentPage + 1}`}
-          className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 transition-colors"
+          className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
         >
-          Next →
+          next →
         </Link>
       )}
     </nav>

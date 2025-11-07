@@ -1,5 +1,6 @@
 import './globals.css';
-import Navigation from '@/components/Navigation';
+import Sidebar from '@/components/Sidebar';
+import RightSidebar from '@/components/RightSidebar';
 
 export const metadata = {
   title: 'taishi.ro',
@@ -10,8 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Navigation />
-        <main>{children}</main>
+        <Sidebar />
+        <main className="sidebar:ml-[200px] sidebar:mr-[200px] ml-0 mr-0 mt-0 mb-0">{children}</main>
+        <RightSidebar />
       </body>
     </html>
   );
