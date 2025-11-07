@@ -4,7 +4,7 @@ date: "2025-11-02"
 summary: "How I built this blog using Next.js, Tailwind CSS, and Markdown. A deep dive into the technical architecture and design decisions."
 tags: ["dev", "nextjs", "blog"]
 lang: "en"
-draft: false
+draft: true
 ---
 
 # Building a Blog with Next.js

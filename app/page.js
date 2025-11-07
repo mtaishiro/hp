@@ -22,7 +22,7 @@ export default function Home() {
     if (!mounted) return;
     
     const interval = setInterval(() => {
-      setRotation((prev) => (prev + 0.2) % 360);
+      setRotation((prev) => (prev + 0.3) % 360);
     }, 50);
     return () => clearInterval(interval);
   }, [mounted]);
@@ -158,10 +158,10 @@ export default function Home() {
       const toNatEnd2X = toNatEndBase.x - toNatPerpX * arrowSpacing;
       const toNatEnd2Y = toNatEndBase.y - toNatPerpY * arrowSpacing;
       
-      const toCulPath1 = `M ${toCulStart1X} ${toCulStart1Y} L ${toCulEnd1X} ${toCulEnd1Y}`;
+      const toCulPath1 = `M ${toCulEnd1X} ${toCulEnd1Y} L ${toCulStart1X} ${toCulStart1Y}`;
       const toCulPath2 = `M ${toCulStart2X} ${toCulStart2Y} L ${toCulEnd2X} ${toCulEnd2Y}`;
       const toNatPath1 = `M ${toNatStart1X} ${toNatStart1Y} L ${toNatEnd1X} ${toNatEnd1Y}`;
-      const toNatPath2 = `M ${toNatStart2X} ${toNatStart2Y} L ${toNatEnd2X} ${toNatEnd2Y}`;
+      const toNatPath2 = `M ${toNatEnd2X} ${toNatEnd2Y} L ${toNatStart2X} ${toNatStart2Y}`;
 
       setArrowPaths({ 
         toCul1: toCulPath1, 
@@ -205,16 +205,16 @@ export default function Home() {
       </h1>
 
       {/* Labels - Always visible */}
-      <span ref={culRef} className="absolute sidebar:top-32 top-[140px] sidebar:right-32 right-8 text-base text-gray-900 inline-block">cul.</span>
-      <span ref={natRef} className="absolute sidebar:bottom-32 bottom-[88px] sidebar:left-32 left-8 text-base text-gray-900 inline-block">nat.</span>
+      <span ref={culRef} className="absolute sidebar:top-32 top-[140px] sidebar:right-32 right-8 text-lg font-bold text-gray-900 inline-block">cul.</span>
+      <span ref={natRef} className="absolute sidebar:bottom-32 bottom-[88px] sidebar:left-32 left-8 text-lg font-bold text-gray-900 inline-block">nat.</span>
 
       {/* Center orbit circle */}
       <div className="relative" style={{ zIndex: 10 }}>
-        <div className="w-[300px] h-[300px] rounded-full border-2 border-gray-400" />
+        <div className="w-[300px] h-[300px] rounded-full border-2 border-[#4D4C4C]" />
         
         {/* Center person icon */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div ref={personRef} className="w-20 h-20 rounded-full border-2 border-gray-400 flex items-center justify-center bg-[#fcf6e3]">
+          <div ref={personRef} className="w-16 h-16 rounded-full border-[2px] border-[#000000] flex items-center justify-center bg-[#C9C3B1]">
             <Image
               src="/icons/person.png"
               alt="Person"
@@ -229,26 +229,23 @@ export default function Home() {
         {mounted && orbitingIcons.map((icon) => {
           const pos = getIconPosition(icon.angle);
           return (
-            <a
+            <div
               key={icon.name}
-              href={icon.href}
-              target={icon.href.startsWith('http') ? '_blank' : undefined}
-              rel={icon.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="absolute top-1/2 left-1/2 cursor-pointer hover:scale-110 transition-transform"
+              className="absolute top-1/2 left-1/2 transition-transform"
               style={{
                 transform: `translate(calc(-50% + ${pos.x}px), calc(-50% + ${pos.y}px))`,
               }}
             >
-              <div className="w-16 h-16 rounded-full border-2 border-gray-400 flex items-center justify-center bg-[#fcf6e3]">
+              <div className="w-14 h-14 rounded-full border-2 border-[#4D4C4C] flex items-center justify-center bg-[#C9C3B1]">
                 <Image
                   src={`/icons/${icon.name}.png`}
                   alt={icon.name}
-                  width={32}
-                  height={32}
+                  width={icon.name === 'music' ? 40 : 34}
+                  height={icon.name === 'music' ? 40 : 34}
                   className="object-contain"
                 />
               </div>
-            </a>
+            </div>
           );
         })}
       </div>
