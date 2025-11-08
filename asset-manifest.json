@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1ec43905.css",
+    "main.js": "/static/js/main.8f1bd9c1.js",
+    "static/media/okbglitch.png": "/static/media/okbglitch.26402810e84c9e9de9cb.png",
+    "index.html": "/index.html",
+    "main.1ec43905.css.map": "/static/css/main.1ec43905.css.map",
+    "main.8f1bd9c1.js.map": "/static/js/main.8f1bd9c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ec43905.css",
+    "static/js/main.8f1bd9c1.js"
+  ]
+}
