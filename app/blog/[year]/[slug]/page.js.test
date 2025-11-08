@@ -1,0 +1,10 @@
+import { getAllPosts } from '@/lib/posts';
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  const publicEnglishPosts = posts.filter(p => p && p.lang === 'en' && !p.draft);
+  return publicEnglishPosts.map((post) => ({
+    year: String(post.year),
+    slug: String(post.slug),
+  }));
+}

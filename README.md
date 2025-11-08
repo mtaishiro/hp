@@ -15,12 +15,26 @@ Personal portfolio and blog website built with Next.js, Tailwind CSS, and MDX.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15.1.6 (App Router)
 - **Styling**: Tailwind CSS with Typography plugin
 - **Typography**: Sometype Mono (custom monospace font)
 - **Content**: Markdown & MDX with frontmatter
 - **Animations**: React hooks for smooth icon orbiting and dynamic SVG arrows
 - **Deployment**: Vercel (auto-deploy from GitHub)
+
+## Known Issues
+
+### Next.js 15.1.6 Static Export Bug
+
+**Issue**: Next.js 15.1.6 has a bug where `generateStaticParams()` is not detected during static export builds when the function returns an empty array.
+
+**Symptoms**: Build fails with error: `Page "/blog/[year]/[slug]" is missing "generateStaticParams()" so it cannot be used with "output: export" config.`
+
+**Root Cause**: When all blog posts are drafts (no published posts), `generateStaticParams()` returns an empty array `[]`, and Next.js 15.1.6's static export mode fails to recognize the function exists.
+
+**Workaround**: Ensure at least one post is published (not a draft) for each language route. The function is correctly implemented and works fine when it returns a non-empty array.
+
+**Status**: This is a Next.js bug, not an issue with our code. The `generateStaticParams()` functions are correctly implemented in both `/app/blog/[year]/[slug]/page.js` and `/app/blog/ja/[year]/[slug]/page.js`.
 
 ## Design
 
