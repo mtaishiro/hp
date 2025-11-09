@@ -9,10 +9,6 @@ export default function RightSidebar() {
       href: 'https://soundcloud.com/tshro' 
     },
     { 
-      label: 'OpenProcessing', 
-      href: 'https://openprocessing.org/user/391345/' 
-    },
-    { 
       label: 'GitHub', 
       href: 'https://github.com/mtaishiro' 
     },
